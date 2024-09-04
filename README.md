@@ -1,1 +1,1 @@
-# UserUsing
+# User usage and password hashing
