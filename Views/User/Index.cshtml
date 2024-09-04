@@ -1,0 +1,34 @@
+﻿@model UserUsing.Models.UserModel
+
+<form asp-action="Index" method="post">
+    <span asp-validation-for="Ad" class="text-danger"></span>
+    <br />
+    <label for="Ad">Kullanıcı Adı:</label>
+    <input type="text" asp-for="Ad" class="form-control" />
+
+    <span asp-validation-for="Sifre" class="text-danger"></span>
+    <br />
+    <label for="Sifre">Şifre:</label>
+    <input type="password" asp-for="Sifre" class="form-control" />
+
+    <span asp-validation-for="Sifre2" class="text-danger"></span>
+    <br />
+    <label for="Sifre2">Şifre Tekrar:</label>
+    <input type="password" asp-for="Sifre2" class="form-control" />
+
+    <button type="submit" class="btn btn-primary mt-1">Giriş</button>
+</form>
+
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="mt-1 alert alert-danger">
+        @ViewBag.ErrorMessage
+    </div>
+}
+else if (Model != null && Model.Ad != null)
+{
+    <h1>Hoş geldiniz : @Model.Ad</h1>
+    <h1>@Model.Sifre2</h1>
+    <p class="mt-1 alert alert-success">Giriş Başarılı</p>
+}
